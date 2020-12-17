@@ -1,0 +1,1 @@
+python train.py --img 416 --batch 8 --epochs 30 --data ../Dataset_Zhitang_Yolo5_3/data.yaml --weights ../yolov5s.pt
