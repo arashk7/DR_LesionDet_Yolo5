@@ -1,1 +1,1 @@
-python detect.py --source ..\Dataset_Zhitang_Yolo5_3\test\images --weights runs\train\exp\weights\best.pt --conf 0.25
+python detect.py --source ..\Dataset_Zhitang_Yolo5_3\test\images --weights runs\train\exp\weights\best.pt --conf 0.25 --save-txt
