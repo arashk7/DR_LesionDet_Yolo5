@@ -20,6 +20,10 @@ def detect(save_img=False):
     webcam = source.isnumeric() or source.endswith('.txt') or source.lower().startswith(
         ('rtsp://', 'rtmp://', 'http://'))
 
+    '''arash'''
+    weights='weights/exp15.pt'
+    source='E:\Dataset\DR\DeepDr\merged_tr_vl/55/55_l2.jpg'
+
     # Directories
     save_dir = Path(increment_path(Path(opt.project) / opt.name, exist_ok=opt.exist_ok))  # increment run
     (save_dir / 'labels' if save_txt else save_dir).mkdir(parents=True, exist_ok=True)  # make dir
@@ -80,6 +84,7 @@ def detect(save_img=False):
 
         # Process detections
         for i, det in enumerate(pred):  # detections per image
+            
             if webcam:  # batch_size >= 1
                 p, s, im0, frame = Path(path[i]), '%g: ' % i, im0s[i].copy(), dataset.count
             else:
