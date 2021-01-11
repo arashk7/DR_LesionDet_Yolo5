@@ -14,10 +14,23 @@ from utils.general import check_img_size, non_max_suppression, apply_classifier,
 from utils.plots import plot_one_box
 from utils.torch_utils import select_device, load_classifier, time_synchronized
 
+def image_from_buffer(buffer):
+    '''
+    If we don't save the file locally and just want to open
+    a POST'd file. This is what we use.
+    '''
+    bytes_as_np_array = np.frombuffer(buffer.read(), dtype=np.uint8)
+    flag = 1
+    # flag = 1 == cv2.IMREAD_COLOR
+    # https://docs.opencv.org/4.2.0/d4/da8/group__imgcodecs.html
+    frame = cv2.imdecode(bytes_as_np_array, flag)
+    return frame
+
 from PIL import Image, ImageOps
-from flask import Flask, send_file, jsonify
+from flask import Flask, send_file, jsonify, render_template
 from flask_restx import Api, Resource, reqparse, fields
 from werkzeug.datastructures import FileStorage
+
 
 app = Flask(__name__)
 api = Api(app)
@@ -26,15 +39,12 @@ parser = reqparse.RequestParser()
 parser.add_argument('metric')
 parser.add_argument('file', location='files',
                     type=FileStorage, required=True)
-weights = 'weights/exp15.pt'
-imgsize = 640
-devicee = ''
-webcam=False
-conf_thres=0.25
-iou_thres=0.45
-agnostic_nms=False
-classes = None
-augment = False
+
+
+@app.route('/upload')
+def upload():
+   return render_template('upload.html')
+
 @api.expect(parser)
 class Process(Resource):
     def post(self):
@@ -49,6 +59,14 @@ class Process(Resource):
 
         '''arash'''
         weights = 'weights/exp15.pt'
+        imgsize = 640
+        devicee = ''
+        webcam = False
+        conf_thres = 0.29
+        iou_thres = 0.45
+        agnostic_nms = False
+        classes = None
+        augment = False
         source = 'E:\Dataset\DR\DeepDr\merged_tr_vl/55/55_l2.jpg'
 
         # Directories
@@ -92,10 +110,13 @@ class Process(Resource):
         _ = model(img.half() if half else img) if device.type != 'cpu' else None  # run once
         s = ''
 
-        img = Image.open(uploaded_file.stream)
+        # img = Image.open(source)#uploaded_file.stream
+        # img = cv2.imread(uploaded_file.stream)
         # img = Image.open('E:\Dataset\DR\DeepDr\merged_tr_vl/66/66_l2.jpg')
-        img = img.resize((imgsz, imgsz))
-        img = np.asarray(img)
+        # img = img.resize((imgsz, imgsz))
+        # img = np.asarray(img)
+        # img = cv2.imdecode(img, cv2.IMREAD_COLOR)
+        img = image_from_buffer(uploaded_file)
         # img = np.reshape(img, (3, imgsz, imgsz))
 
         # Padded resize
