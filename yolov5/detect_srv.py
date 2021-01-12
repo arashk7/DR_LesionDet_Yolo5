@@ -27,7 +27,7 @@ def image_from_buffer(buffer):
     return frame
 
 from PIL import Image, ImageOps
-from flask import Flask, send_file, jsonify, render_template
+from flask import Flask, send_file, jsonify, render_template, make_response,redirect,url_for
 from flask_restx import Api, Resource, reqparse, fields
 from werkzeug.datastructures import FileStorage
 
@@ -40,10 +40,20 @@ parser.add_argument('metric')
 parser.add_argument('file', location='files',
                     type=FileStorage, required=True)
 
+@api.route('/upload')
+class upload(Resource):
+    def get(self):
+        return make_response(render_template("upload.html"))
 
-@app.route('/upload')
-def upload():
-   return render_template('upload.html')
+# @api.route('/uploader')
+# class vis(Resource):
+#     def get(self):
+#         return make_response(render_template("upload.html"))
+#
+# @app.route('/display/<filename>')
+# def display_image(filename):
+# 	#print('display_image filename: ' + filename)
+# 	return redirect(url_for('static', filename='uploads/' + filename), code=301)
 
 @api.expect(parser)
 class Process(Resource):
