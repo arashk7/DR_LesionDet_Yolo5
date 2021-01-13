@@ -1,0 +1,50 @@
+<html>
+<head>
+    <title>Automatic Fundus Image Analysis</title>
+</head>
+<body>
+<table height="254" style="width: 599px;">
+<tbody>
+<tr>
+<td style="width: 404.8px;">
+    <canvas id="canvas">
+        Sorry. Your browser does not support HTML5 canvas element.
+    </canvas>
+    </td>
+<td style="width: 179.2px; vertical-align: top;">
+<p>Conf threshold level: <input type="range" /></p>
+  <p><input type="checkbox" />item_0
+  <input type="checkbox" />item_0</p>
+
+  <p><input type="checkbox" />item_0</p>
+</td>
+</tr>
+</tbody>
+</table>
+</body>
+
+<script>
+    window.onload = function () {
+
+        // GET THE IMAGE.
+        var img = new Image();
+        img.src = 'https://html-online.com/editor/images/html-editor.png';
+
+        // WAIT TILL IMAGE IS LOADED.
+        img.onload = function () {
+            fill_canvas(img);       // FILL THE CANVAS WITH THE IMAGE.
+        }
+
+        function fill_canvas(img) {
+            // CREATE CANVAS CONTEXT.
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            ctx.drawImage(img, 0, 0);       // DRAW THE IMAGE TO THE CANVAS.
+        }
+    }
+</script>
+</html>

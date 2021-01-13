@@ -43,7 +43,7 @@ parser.add_argument('file', location='files',
 @api.route('/upload')
 class upload(Resource):
     def get(self):
-        return make_response(render_template("upload.html"))
+        return make_response(render_template("visualize.html"))
 
 # @api.route('/uploader')
 # class vis(Resource):
