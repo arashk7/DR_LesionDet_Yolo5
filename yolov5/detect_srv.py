@@ -127,6 +127,7 @@ class Process(Resource):
         # img = np.asarray(img)
         # img = cv2.imdecode(img, cv2.IMREAD_COLOR)
         img = image_from_buffer(uploaded_file)
+
         # img = np.reshape(img, (3, imgsz, imgsz))
 
         # Padded resize
