@@ -11,11 +11,11 @@ import torch.nn as nn
 sys.path.append('./')  # to run '$ python *.py' files in subdirectories
 logger = logging.getLogger(__name__)
 
-from models.common import Conv, Bottleneck, SPP, DWConv, Focus, BottleneckCSP, Concat, NMS, autoShape
-from models.experimental import MixConv2d, CrossConv, C3
-from utils.autoanchor import check_anchor_order
-from utils.general import make_divisible, check_file, set_logging
-from utils.torch_utils import time_synchronized, fuse_conv_and_bn, model_info, scale_img, initialize_weights, \
+from yolov5.models.common import Conv, Bottleneck, SPP, DWConv, Focus, BottleneckCSP, Concat, NMS, autoShape
+from yolov5.models.experimental import MixConv2d, CrossConv, C3
+from yolov5.utils.autoanchor import check_anchor_order
+from yolov5.utils.general import make_divisible, check_file, set_logging
+from yolov5.utils.torch_utils import time_synchronized, fuse_conv_and_bn, model_info, scale_img, initialize_weights, \
     select_device, copy_attr
 
 try:

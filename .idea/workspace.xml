@@ -30,6 +30,7 @@
       <list>
         <option value="Python Script" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -46,26 +47,30 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/flask_exp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/yolov5/templates" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\MyGit\DR_LesionDet_Yolo5\flask_exp" />
-      <recent name="E:\MyGit\DR_LesionDet_Yolo5\flask_exp\templates" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\MyGit\DR_LesionDet_Yolo5\flask_exp" />
-      <recent name="E:\MyGit\DR_LesionDet_Yolo5\flask_exp\static" />
       <recent name="E:\MyGit\DR_LesionDet_Yolo5\yolov5\templates" />
       <recent name="E:\MyGit\DR_LesionDet_Yolo5\yolov5" />
+      <recent name="E:\MyGit\DR_LesionDet_Yolo5\flask_exp\templates" />
+      <recent name="E:\MyGit\DR_LesionDet_Yolo5\flask_exp\lib" />
+      <recent name="E:\MyGit\DR_LesionDet_Yolo5\flask_exp\static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\MyGit\DR_LesionDet_Yolo5\flask_exp\static\JS" />
+      <recent name="E:\MyGit\DR_LesionDet_Yolo5\flask_exp\static" />
+      <recent name="E:\MyGit\DR_LesionDet_Yolo5\flask_exp\templates" />
+      <recent name="E:\MyGit\DR_LesionDet_Yolo5\flask_exp" />
+      <recent name="E:\MyGit\DR_LesionDet_Yolo5\yolov5\templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.mainflask">
-    <configuration name="fab_vis.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/DR_LesionDet_Yolo5/flask_exp/templates/fab_vis.html" useBuiltInWebServerPort="true">
+  <component name="RunManager" selected="Python.detect_service">
+    <configuration name="fab_vis.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/DR_LesionDet_Yolo5/yolov5/templates/fab_vis.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="detect" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="detect_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DR_LesionDet_Yolo5" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -78,7 +83,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yolov5/detect.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yolov5/detect_service.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -109,6 +114,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="mainflask (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DR_LesionDet_Yolo5" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/http_service" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/http_service/mainflask.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="mainflask" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DR_LesionDet_Yolo5" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -131,35 +158,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="serv" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="DR_LesionDet_Yolo5" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/service" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/service/serv.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.mainflask" />
-        <item itemvalue="JavaScript Debug.fab_vis.html" />
+        <item itemvalue="Python.detect_service" />
+        <item itemvalue="JavaScript Debug.fab_vis.html (1)" />
         <item itemvalue="Python.detect_srv" />
-        <item itemvalue="Python.serv" />
-        <item itemvalue="Python.detect" />
+        <item itemvalue="Python.mainflask (1)" />
+        <item itemvalue="Python.mainflask" />
       </list>
     </recent_temporary>
   </component>
@@ -194,42 +199,46 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state width="618" height="466" key="DebuggerActiveHint" timestamp="1610697956255">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="618" height="466" key="DebuggerActiveHint/0.0.2048.1112@0.0.2048.1112" timestamp="1610697956255" />
     <state x="805" y="311" key="FileChooserDialogImpl" timestamp="1608708824959">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="805" y="311" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1608708824959" />
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1610614879458">
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1610701373617">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1610614879458" />
-    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1610614879458">
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1610701373617" />
+    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1610701373617">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1610614879458" />
-    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1610614879458">
+    <state width="2005" height="305" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1610701373617" />
+    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1610701373617">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1610614879458" />
-    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1610614879458">
+    <state width="2005" height="305" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1610701373617" />
+    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1610701373617">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1610614879458" />
-    <state width="2005" height="376" key="GridCell.Tab.1.bottom" timestamp="1610333797766">
+    <state width="2005" height="305" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1610701373617" />
+    <state width="2005" height="376" key="GridCell.Tab.1.bottom" timestamp="1610701022646">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="376" key="GridCell.Tab.1.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1610333797766" />
-    <state width="2005" height="376" key="GridCell.Tab.1.center" timestamp="1610333797766">
+    <state width="2005" height="376" key="GridCell.Tab.1.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1610701022646" />
+    <state width="2005" height="376" key="GridCell.Tab.1.center" timestamp="1610701022646">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="376" key="GridCell.Tab.1.center/0.0.2048.1112@0.0.2048.1112" timestamp="1610333797766" />
-    <state width="2005" height="376" key="GridCell.Tab.1.left" timestamp="1610333797766">
+    <state width="2005" height="376" key="GridCell.Tab.1.center/0.0.2048.1112@0.0.2048.1112" timestamp="1610701022646" />
+    <state width="2005" height="376" key="GridCell.Tab.1.left" timestamp="1610701022646">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="376" key="GridCell.Tab.1.left/0.0.2048.1112@0.0.2048.1112" timestamp="1610333797766" />
-    <state width="2005" height="376" key="GridCell.Tab.1.right" timestamp="1610333797766">
+    <state width="2005" height="376" key="GridCell.Tab.1.left/0.0.2048.1112@0.0.2048.1112" timestamp="1610701022646" />
+    <state width="2005" height="376" key="GridCell.Tab.1.right" timestamp="1610701022646">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="376" key="GridCell.Tab.1.right/0.0.2048.1112@0.0.2048.1112" timestamp="1610333797766" />
+    <state width="2005" height="376" key="GridCell.Tab.1.right/0.0.2048.1112@0.0.2048.1112" timestamp="1610701022646" />
     <state x="533" y="201" key="SettingsEditor" timestamp="1608705315905">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -243,15 +252,21 @@
           <line>139</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/yolov5/detect_srv.py</url>
+          <line>70</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/DR_LesionDet_Yolo5$detect.coverage" NAME="detect Coverage Results" MODIFIED="1610328704181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yolov5" />
     <SUITE FILE_PATH="coverage/DR_LesionDet_Yolo5$detect_srv__1_.coverage" NAME="detect_srv (1) Coverage Results" MODIFIED="1610095779149" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yolov5" />
-    <SUITE FILE_PATH="coverage/DR_LesionDet_Yolo5$mainflask.coverage" NAME="mainflask Coverage Results" MODIFIED="1610614879453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/flask_exp" />
-    <SUITE FILE_PATH="coverage/DR_LesionDet_Yolo5$detect_service.coverage" NAME="detect_service Coverage Results" MODIFIED="1610071372872" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yolov5" />
+    <SUITE FILE_PATH="coverage/DR_LesionDet_Yolo5$mainflask.coverage" NAME="mainflask Coverage Results" MODIFIED="1610681036715" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/flask_exp" />
+    <SUITE FILE_PATH="coverage/DR_LesionDet_Yolo5$detect_service.coverage" NAME="detect_service Coverage Results" MODIFIED="1610701373611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yolov5" />
     <SUITE FILE_PATH="coverage/DR_LesionDet_Yolo5$serv.coverage" NAME="serv Coverage Results" MODIFIED="1610353289667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/service" />
-    <SUITE FILE_PATH="coverage/DR_LesionDet_Yolo5$detect_srv.coverage" NAME="detect_srv Coverage Results" MODIFIED="1610523536354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yolov5" />
+    <SUITE FILE_PATH="coverage/DR_LesionDet_Yolo5$detect_srv.coverage" NAME="detect_srv Coverage Results" MODIFIED="1610692319649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yolov5" />
+    <SUITE FILE_PATH="coverage/DR_LesionDet_Yolo5$mainflask__1_.coverage" NAME="mainflask (1) Coverage Results" MODIFIED="1610690480188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/http_service" />
   </component>
 </project>

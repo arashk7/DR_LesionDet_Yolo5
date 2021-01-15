@@ -1,0 +1,79 @@
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+ <script src="../static/lib/fabric.min.js"></script>
+</head>
+<body>
+<table height="254" style="width: 599px;">
+<tbody>
+<tr>
+<td style="width: 404.8px;">
+<canvas id="c" width="1000" height="1000" style="border:2px solid #000000"></canvas>
+</td>
+<td style="width: 179.2px; vertical-align: top;">
+<p>Conf level: <input type="range" /></p>
+  <p><input type="checkbox" onclick="oncheck()" id="check1"checked />Bleeding: {{ lesions['bleeding'] }}</p>
+  <p><input type="checkbox" onclick="oncheck()" id="check2"checked />Optic Disk: {{ lesions['optic_disk'] }}</p>
+    <p><input type="checkbox" onclick="oncheck()" id="check3"checked />Macular: {{ lesions['macular'] }}</p>
+    <p><input type="checkbox" onclick="oncheck()" id="check4"checked />Hard Exhudate: {{ lesions['hard_exhudate'] }}</p>
+    <p><input type="checkbox" onclick="oncheck()" id="check5"checked />Soft Exhudate: {{ lesions['soft_exhudate'] }}</p>
+
+</td>
+</tr>
+</tbody>
+</table>
+</body>
+
+
+<script>
+
+
+window.onload = function () {
+        var canvas = new fabric.Canvas('c');
+        // canvas.add(new fabric.Circle({radius: 30, fill: '#f55', top: 100, left: 100}));
+        // canvas.add(new fabric.Circle({radius: 30, fill: '#f55', top: 300, left: 100}));
+        // var img = new fabric.Image();
+        // img.setAttribute("src", 'http://www.cdgdc.edu.cn/images/zzlkpt_left1pic20180419.jpg');
+        // '../static/media/12_r1.jpg'
+        console.log("{{ filename }}")
+        fabric.Image.fromURL("{{ filename }}", (img) => {
+
+            img.set({
+                left: 0,
+                top: 0
+                // Scale image to fit width / height ?
+            });
+
+            img.scaleToHeight(canvas.height);
+            img.scaleToWidth(canvas.width);
+
+            canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas));
+
+        })
+        canvas.selectionColor = 'rgba(100,100,100,0.3)';
+        canvas.selectionBorderColor = 'green';
+        canvas.selectionLineWidth = 5;
+
+    //
+    xx=parseFloat("{{ lesions[0]['x'] }}")*canvas.width
+    yy=parseFloat("{{ lesions[0]['y'] }}")*canvas.height
+    ww=parseFloat("{{ lesions[0]['w'] }}")*canvas.width
+    hh=parseFloat("{{ lesions[0]['h'] }}")*canvas.height
+    console.log("{{ lesions[0]['cls'] }}")
+    var rect = new fabric.Rect({
+      fill: 'rgba(0,255,0,0.2)',
+      width: ww,
+      height: hh,
+      top:yy,
+      left:xx,
+      stroke: 'red',
+      strokeDashArray: [5, 5],
+      linewidth:5
+    });
+    canvas.add(rect);
+    }
+
+ </script>
+</html>

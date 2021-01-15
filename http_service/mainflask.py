@@ -19,6 +19,7 @@ from yolov5.utils.general import check_img_size, non_max_suppression, apply_clas
 from yolov5.utils.plots import plot_one_box
 from yolov5.utils.torch_utils import select_device, load_classifier, time_synchronized
 
+
 app = Flask(__name__)
 api = Api(app)
 parser = reqparse.RequestParser()
@@ -27,7 +28,6 @@ parser.add_argument('metric')
 parser.add_argument('file', location='files',
                     type=FileStorage, required=True)
 app.config["IMAGE_UPLOADS"] = "media/"
-
 
 #
 # @api.route('/vis')
@@ -46,11 +46,10 @@ def image_from_buffer(buffer):
     frame = cv2.imdecode(bytes_as_np_array, flag)
     return frame
 
-
 class ADetect:
-    def detect(self, img):
+    def detect(self,uploaded_file):
         '''arash'''
-        weights = 'weights/exp15.pt'
+        weights = '../yolov5/weights/exp15.pt'
         imgsize = 640
         devicee = ''
         webcam = False
@@ -98,8 +97,8 @@ class ADetect:
 
         # Run inference
         t0 = time.time()
-        img1 = torch.zeros((1, 3, imgsz, imgsz), device=device)  # init img
-        _ = model(img1.half() if half else img1) if device.type != 'cpu' else None  # run once
+        img = torch.zeros((1, 3, imgsz, imgsz), device=device)  # init img
+        _ = model(img.half() if half else img) if device.type != 'cpu' else None  # run once
         s = ''
 
         # img = Image.open(source)#uploaded_file.stream
@@ -108,6 +107,7 @@ class ADetect:
         # img = img.resize((imgsz, imgsz))
         # img = np.asarray(img)
         # img = cv2.imdecode(img, cv2.IMREAD_COLOR)
+        img = image_from_buffer(uploaded_file)
 
         # img = np.reshape(img, (3, imgsz, imgsz))
 
@@ -150,9 +150,6 @@ class ADetect:
                 # txt_path = str(save_dir / 'labels' / p.stem) + ('' if dataset.mode == 'image' else f'_{frame}')
                 s += '%gx%g ' % img.shape[2:]  # print string
                 gn = torch.tensor(im0.shape)[[1, 0, 1, 0]]  # normalization gain whwh
-                lesions = []
-                counter = {}
-                lesion_list = {}
                 if len(det):
                     # Rescale boxes from img_size to im0 size
                     det[:, :4] = scale_coords(img.shape[2:], det[:, :4], im0.shape).round()
@@ -161,19 +158,12 @@ class ADetect:
                     for c in det[:, -1].unique():
                         n = (det[:, -1] == c).sum()  # detections per class
                         s += f'{n} {names[int(c)]}s, '  # add to string
-                        counter[names[int(c)]] = f'{n}'
 
-                    # dict of results
-                    for *xyxy, conf, cls in reversed(det):
-                        xywh = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(-1).tolist()  # normalized xywh
-                        n = counter[f'{names[int(cls)]}']
-                        params = {'cls':f'{names[int(cls)]}','n': counter[f'{names[int(cls)]}'], 'x': xywh[0], 'y': xywh[1], 'w': xywh[2],
-                                  'h': xywh[3]}
-                        lesions.append(params)
-
-
-                    # for les in lesions:
-                    #      lesion_list[f'{names[int(cls)]}']+=les[]
+                    # Write results
+                    # for *xyxy, conf, cls in reversed(det):
+                    #     if save_txt:  # Write to file
+                    #         xywh = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(-1).tolist()  # normalized xywh
+                    #         line = (cls, *xywh, conf) if opt.save_conf else (cls, *xywh)  # label format
                     #         with open(txt_path + '.txt', 'a') as f:
                     #             f.write(('%g ' * len(line)).rstrip() % line + '\n')
                     #
@@ -183,19 +173,12 @@ class ADetect:
 
                 # Print time (inference + NMS)
                 print(f'{s}Done. ({t2 - t1:.3f}s)')
-                return lesions
-
 
 det = ADetect()
-
-
 @api.route('/start')
 class start(Resource):
     def get(self):
         return make_response(render_template("upload1.html"))
-
-
-from shutil import copyfileobj
 
 
 @api.expect(parser)
@@ -203,19 +186,14 @@ from shutil import copyfileobj
 class process(Resource):
     def post(self):
         args = parser.parse_args()
-        uploaded_file1 = args['file']
-        path = os.path.join(app.config["IMAGE_UPLOADS"], uploaded_file1.filename)
-        img = image_from_buffer(uploaded_file1)
+        uploaded_file = args['file']
+        path = os.path.join(app.config["IMAGE_UPLOADS"], uploaded_file.filename)
 
-        lesions = det.detect(img)
-
-        cv2.imwrite(os.path.join('static', path), img)
-
-        # uploaded_file1.save(os.path.join('static', path))
-
+        uploaded_file.save(os.path.join('static',path))
+        det.detect(uploaded_file)
+        # img = Image.open(uploaded_file.stream)
         path = path.replace('\\', '/')
-        return make_response(
-            render_template("fab_vis.html", filename=url_for('static', filename=path), lesions=lesions))
+        return make_response(render_template("fab_vis.html", filename=url_for('static',filename=path),bleeding={'1':'one'}))
 
 
 # api.add_resource(upload, '/vis')
