@@ -209,6 +209,7 @@ class process(Resource):
 
         lesions = det.detect(img)
 
+
         cv2.imwrite(os.path.join('static', path), img)
 
         # uploaded_file1.save(os.path.join('static', path))
