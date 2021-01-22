@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c47a13b7-4536-4f6f-a55c-fa97f3b1b768" name="Default Changelist" comment="" />
+    <list default="true" id="c47a13b7-4536-4f6f-a55c-fa97f3b1b768" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yolov5/detect_streamlit.py" beforeDir="false" afterPath="$PROJECT_DIR$/yolov5/detect_streamlit.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +50,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/yolov5/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SemiAuto_ArashObjectAnnotator" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -182,6 +185,7 @@
       <workItem from="1608704687358" duration="2980000" />
       <workItem from="1608710959704" duration="982000" />
       <workItem from="1611023344924" duration="600000" />
+      <workItem from="1611208642978" duration="7355000" />
     </task>
     <servers />
   </component>
@@ -205,10 +209,10 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state width="618" height="466" key="DebuggerActiveHint/0.0.2048.1112@0.0.2048.1112" timestamp="1610697956255" />
-    <state x="805" y="311" key="FileChooserDialogImpl" timestamp="1608708824959">
+    <state x="805" y="311" key="FileChooserDialogImpl" timestamp="1611213940767">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="805" y="311" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1608708824959" />
+    <state x="805" y="311" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1611213940767" />
     <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1610939448424">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>

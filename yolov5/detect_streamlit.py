@@ -16,14 +16,15 @@ from utils.torch_utils import select_device, load_classifier, time_synchronized
 
 import streamlit as st
 
+
 class ADetect:
-    def detect(self, img, conf_level = 0.29):
+    def detect(self, img, conf_level=0.29):
         '''arash'''
         weights = 'weights/exp15.pt'
         imgsize = 640
         devicee = ''
         webcam = False
-        conf_thres=conf_level
+        conf_thres = conf_level
         iou_thres = 0.45
         agnostic_nms = False
         classes = None
@@ -137,7 +138,8 @@ class ADetect:
                     for *xyxy, conf, cls in reversed(det):
                         xywh = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(-1).tolist()  # normalized xywh
                         n = counter[f'{names[int(cls)]}']
-                        params = {'cls':f'{names[int(cls)]}','n': counter[f'{names[int(cls)]}'], 'x': xywh[0], 'y': xywh[1], 'w': xywh[2],
+                        params = {'cls': f'{names[int(cls)]}', 'n': counter[f'{names[int(cls)]}'], 'x': xywh[0],
+                                  'y': xywh[1], 'w': xywh[2],
                                   'h': xywh[3]}
                         lesions.append(params)
                         # xyxy[0]-=105
@@ -157,40 +159,44 @@ class ADetect:
 
                 # Print time (inference + NMS)
                 print(f'{s}Done. ({t2 - t1:.3f}s)')
-                return lesions,img0
+                return lesions, img0
 
 
 def lesion_detection():
-    sel=st.selectbox("Choose Fundus Image:",('Sample 1','Sample 2','Sample 3','Upload Image File'))
+    sel = st.selectbox("Choose Fundus Image:", ('Sample 1', 'Sample 2', 'Sample 3', 'Upload Image File'))
 
     det = ADetect()
-    img=0
-    if sel=='Sample 1':
+    img = 0
+    if sel == 'Sample 1':
         img = cv2.imread('static/media/8_r2.jpg')
-    if sel=='Sample 2':
+    if sel == 'Sample 2':
         img = cv2.imread('static/media/8_l1.jpg')
-    if sel=='Sample 3':
+    if sel == 'Sample 3':
         img = cv2.imread('static/media/20_r1.jpg')
 
     if sel == 'Upload Image File':
         img = cv2.imread('static/media/20_r1.jpg')
-        uploaded_file = st.file_uploader("Choose a image file", type="jpg")
+        uploaded_file = st.file_uploader("Upload Files", type=['png', 'jpeg', 'jpg'])
 
         if uploaded_file is not None:
+            # file_details = {"FileName": 'static/media/'+uploaded_file.name, "FileType": uploaded_file.type,
+            #                 "FileSize": uploaded_file.size}
+            # st.write(file_details)
+            # img = cv2.imread('static/media/'+uploaded_file.name)
             # Convert the file to an opencv image.
             file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
             img = cv2.imdecode(file_bytes, 1)
 
+    if img is not None:
+        st.image(img, use_column_width=True, channels="BGR")
 
+        conf_level = st.slider('Confidence Threshold', min_value=0.1, max_value=0.99, value=0.29)
+        st.write('Value:', conf_level)
+        lesions, img = det.detect(img, conf_level)
 
-    st.image(img,use_column_width=True,channels="BGR")
-
-    conf_level = st.slider('Confidence Threshold', min_value=0.1, max_value=0.99,value=0.29)
-    st.write('Value:', conf_level)
-    lesions,img = det.detect(img,conf_level)
-
-    st.image(img,use_column_width=True,channels="BGR")
+        st.image(img, use_column_width=True, channels="BGR")
     # st.subheader(lesions)
+
 
 """
 # Zhitang - Fundus Image Analysis
@@ -198,8 +204,8 @@ by Ahmad Karambakhsh (arash)
 """
 selected_box = st.sidebar.selectbox(
     'Choose one of the following',
-    ('Lesion Detection','DR Grading', 'Quality Evaluation')
-    )
+    ('Lesion Detection', 'DR Grading', 'Quality Evaluation')
+)
 
 if selected_box == 'Lesion Detection':
     lesion_detection()
