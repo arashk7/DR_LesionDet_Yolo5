@@ -163,6 +163,16 @@ class ADetect:
 
 
 def lesion_detection():
+    ''' Hide Menu and Logo'''
+    hide_streamlit_style = """
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    </style>
+
+    """
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
     sel = st.selectbox("Choose Fundus Image:", ('Sample 1', 'Sample 2', 'Sample 3', 'Upload Image File'))
 
     det = ADetect()
