@@ -29,7 +29,7 @@ class ADetect:
         agnostic_nms = False
         classes = None
         augment = False
-        source = 'E:\Dataset\DR\DeepDr\merged_tr_vl/55/55_l2.jpg'
+        source = 'D:\dataset\F_Yolo/train/images/0a3de3f0-10f2-415a-968a-377450d4eb4a.jpg'
 
         # Directories
         # save_dir = Path(increment_path(Path(opt.project) / opt.name, exist_ok=opt.exist_ok))  # increment run
